@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Общие">
+      <UniqueIdentifier>3c8fa374-3870-485b-bc74-703102a78cfe</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ресурсы">
+      <UniqueIdentifier>83e79c75-f63c-413d-8386-1fa91961961a</UniqueIdentifier>
+      <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
+    </Filter>
+    <Filter Include="Содержимое">
+      <UniqueIdentifier>b580c7f1-168e-427c-9045-f3f9728383f8</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="Common\StepTimer.h">
+      <Filter>Общие</Filter>
+    </ClInclude>
+    <ClInclude Include="Content\SampleFpsTextRenderer.h">
+      <Filter>Содержимое</Filter>
+    </ClInclude>
+    <ClCompile Include="Content\SampleFpsTextRenderer.cpp">
+      <Filter>Содержимое</Filter>
+    </ClCompile>
+    <FxCompile Include="Content\SamplePixelShader.hlsl">
+      <Filter>Содержимое</Filter>
+    </FxCompile>
+    <FxCompile Include="Content\SampleVertexShader.hlsl">
+      <Filter>Содержимое</Filter>
+    </FxCompile>
+    <Image Include="Assets\LockScreenLogo.scale-200.png">
+      <Filter>Ресурсы</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <Filter>Ресурсы</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <Filter>Ресурсы</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <Filter>Ресурсы</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>Ресурсы</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+      <Filter>Ресурсы</Filter>
+    </Image>
+    <Filter Include="DicomLoader">
+      <UniqueIdentifier>{663bf0b7-47f6-41c3-ae31-23ef5add2646}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Calculation">
+      <UniqueIdentifier>{45535001-1821-45da-a993-a8d9c93cca89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global">
+      <UniqueIdentifier>{7b7843fe-33f2-49c3-aafb-26828b33e3ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{b627559f-e310-4790-a271-211d40665486}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XAML">
+      <UniqueIdentifier>{aa384f85-51ab-4fdb-b410-e1ab222dadf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="nifti">
+      <UniqueIdentifier>{c6c08e4f-3516-4d86-8d41-326bcdf4f69c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MRIRenderRCTMain.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="dicom3D.cpp">
+      <Filter>DicomLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="CalculationHelper.cpp">
+      <Filter>Calculation</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="InterfaceElement.cpp">
+      <Filter>Содержимое</Filter>
+    </ClCompile>
+    <ClCompile Include="Histogram.cpp">
+      <Filter>Содержимое</Filter>
+    </ClCompile>
+    <ClCompile Include="Content\Sample3DSceneRenderer.cpp">
+      <Filter>Содержимое</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\DeviceResources.cpp">
+      <Filter>Общие</Filter>
+    </ClCompile>
+    <ClCompile Include="nifti\nifti2_io.cpp">
+      <Filter>nifti</Filter>
+    </ClCompile>
+    <ClCompile Include="nifti\znzlib.cpp">
+      <Filter>nifti</Filter>
+    </ClCompile>
+    <ClCompile Include="nifti\laynii_lib.cpp">
+      <Filter>nifti</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartManager.cpp">
+      <Filter>XAML</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MRIRenderRCTMain.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Common\DirectXHelper.h">
+      <Filter>Общие</Filter>
+    </ClInclude>
+    <ClInclude Include="dicom3D.h">
+      <Filter>DicomLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="helper.h">
+      <Filter>DicomLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="CalculationHelper.h">
+      <Filter>Calculation</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern.h">
+      <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfaceElement.h">
+      <Filter>Содержимое</Filter>
+    </ClInclude>
+    <ClInclude Include="Histogram.h">
+      <Filter>Содержимое</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\DeviceResources.h">
+      <Filter>Общие</Filter>
+    </ClInclude>
+    <ClInclude Include="Content\ShaderStructures.h">
+      <Filter>Содержимое</Filter>
+    </ClInclude>
+    <ClInclude Include="Content\Sample3DSceneRenderer.h">
+      <Filter>Содержимое</Filter>
+    </ClInclude>
+    <ClInclude Include="nifti\nifti1.h">
+      <Filter>nifti</Filter>
+    </ClInclude>
+    <ClInclude Include="nifti\nifti2.h">
+      <Filter>nifti</Filter>
+    </ClInclude>
+    <ClInclude Include="nifti\nifti2_io.h">
+      <Filter>nifti</Filter>
+    </ClInclude>
+    <ClInclude Include="nifti\znzlib.h">
+      <Filter>nifti</Filter>
+    </ClInclude>
+    <ClInclude Include="nifti\laynii_lib.h">
+      <Filter>nifti</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartManager.h">
+      <Filter>XAML</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Ресурсы</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="DirectXPage.xaml" />
+    <Page Include="BlankPage.xaml" />
+    <Page Include="TissueElement.xaml">
+      <Filter>XAML</Filter>
+    </Page>
+    <Page Include="ElectrodeElement.xaml">
+      <Filter>XAML</Filter>
+    </Page>
+    <Page Include="m_Chart.xaml">
+      <Filter>XAML</Filter>
+    </Page>
+    <Page Include="ChartList.xaml">
+      <Filter>XAML</Filter>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="CSHist2D.hlsl">
+      <Filter>Calculation</Filter>
+    </FxCompile>
+    <FxCompile Include="CSHist3D.hlsl">
+      <Filter>Calculation</Filter>
+    </FxCompile>
+    <FxCompile Include="CSSecondGradientMagnitude.hlsl">
+      <Filter>Calculation</Filter>
+    </FxCompile>
+    <FxCompile Include="CSConvolution.hlsl">
+      <Filter>Calculation</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Common\ComputeShader.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Common\CSHist.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Common\PInterfaceShader.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Common\VInterfaceShader.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Content\VPosShader.hlsl">
+      <Filter>Содержимое</Filter>
+    </FxCompile>
+    <FxCompile Include="Content\PPosShader.hlsl">
+      <Filter>Содержимое</Filter>
+    </FxCompile>
+    <FxCompile Include="Content\CSMRI.hlsl">
+      <Filter>Содержимое</Filter>
+    </FxCompile>
+    <FxCompile Include="PSPos.hlsl">
+      <Filter>Содержимое</Filter>
+    </FxCompile>
+    <FxCompile Include="VSPos.hlsl">
+      <Filter>Содержимое</Filter>
+    </FxCompile>
+    <FxCompile Include="Content\PS2DTF.hlsl">
+      <Filter>Содержимое</Filter>
+    </FxCompile>
+    <FxCompile Include="PSPoint.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="VSPoint.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="PSPointInst.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="VSPointInst.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="VSFigureLines.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="PSFigureLines.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Common\PSAreas.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Common\CSMRITF.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Common\CSGradient6.hlsl">
+      <Filter>Calculation</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Common\CSUsefullError.hlsl">
+      <Filter>Calculation</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Common\CSGradient26.hlsl">
+      <Filter>Calculation</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Common\CSUsefullError26.hlsl">
+      <Filter>Calculation</Filter>
+    </FxCompile>
+    <FxCompile Include="CSGradientMagnitude26.hlsl">
+      <Filter>Calculation</Filter>
+    </FxCompile>
+    <FxCompile Include="CSGradientMagnitude6.hlsl">
+      <Filter>Calculation</Filter>
+    </FxCompile>
+    <FxCompile Include="CSNodeScalar8.hlsl">
+      <Filter>Calculation</Filter>
+    </FxCompile>
+    <FxCompile Include="CSNodeGradient8.hlsl">
+      <Filter>Calculation</Filter>
+    </FxCompile>
+    <FxCompile Include="Content\CSMRIWithAddTex.hlsl">
+      <Filter>Содержимое</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,159 @@
+﻿<Page
+    x:Class="MRIRenderRCT.DirectXPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MRIRenderRCT"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        <MenuBar Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Top">
+            <MenuBarItem Title="File">
+                <MenuFlyoutSubItem Text="TD New">
+                    <MenuFlyoutItem Text="Plain Text Document"/>
+                    <MenuFlyoutItem Text="Rich Text Document"/>
+                    <MenuFlyoutItem Text="Other Formats..."/>
+                </MenuFlyoutSubItem>
+                <MenuFlyoutItem Text="Open..." Click="btnOpenFile_Click"/>
+                <MenuFlyoutItem Text="Open set..." Click="btnOpenSetFile_Click"/>
+                <MenuFlyoutItem Text="TD Save"/>
+                <MenuFlyoutSeparator />
+                <MenuFlyoutItem Name="OpenBrainButton" Text="Open brain..." Click="btnOpenBrain_Click" IsEnabled="False"/>               
+                <MenuFlyoutSeparator />
+                <MenuFlyoutItem Text="TD Exit"/>
+            </MenuBarItem>
+
+            <MenuBarItem Title="Action">
+                <MenuFlyoutItem Text="Create 2D transfer function" Click="btnCreate2DTransferFunction"/>
+                <MenuFlyoutItem Text="Connect to EEG" Click="btnConnectToEEG"/>
+               <!--<MenuFlyoutItem Text="Create 3D transfer function" Click="btnCreate3DTransferFunction"/>-->
+            </MenuBarItem>
+
+            <MenuBarItem Title="Option">
+                <MenuFlyoutItem >
+                    <MenuFlyoutItem.Template>
+                        <ControlTemplate TargetType="MenuFlyoutItem">
+                            <CheckBox  Content="Real-Time Render"  Unchecked="RealTimeRenderDisactivate"  Checked="RealTimeRenderActivate"
+                                       IsChecked="True"/>
+                        </ControlTemplate>
+                    </MenuFlyoutItem.Template>
+                </MenuFlyoutItem>
+            </MenuBarItem>
+        </MenuBar>
+
+        <Pivot Name="SwapChainsPivot" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" SelectionChanged="SwapChainsPivotSelectionChanged">
+            <PivotItem Header="Render" Name="MainPivotItem" >
+                <SwapChainPanel x:Name="swapChainPanel">                    
+                </SwapChainPanel>
+            </PivotItem>
+        </Pivot>
+
+        <Grid Margin="0,0,0,0" Grid.Column="2" Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Column ="0" />
+
+            <Pivot Name="TissueElectrodesPivot" Grid.Column="0" Grid.Row="0">
+                <PivotItem Header="Tissues" Name="TissuePivotItem" >
+                    <Grid BorderThickness="1"  BorderBrush="Black">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+
+                        <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Grid.Column="0" Grid.Row="0">
+                            <StackPanel Margin="0,0,0,0" Name="TissuesStackPanel">
+
+                            </StackPanel>
+                        </ScrollViewer>
+                        <Border BorderThickness="1"  BorderBrush="Black" Grid.Column="0" Grid.Row="1">
+                            <Button Name="btAddTissue" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnAddTissue"
+                            >Add Tissue</Button>
+                        </Border>
+
+                    </Grid>
+                </PivotItem>
+                <PivotItem Header="Electrodes" Name="ElectodesPivotItem" >
+                    <Grid BorderThickness="1"  BorderBrush="Black">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                        <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Grid.Column="0" Grid.Row="0">
+                            <StackPanel Margin="0,0,0,0" Name="ElectrodeStackPanel">
+                                
+                            </StackPanel>
+                        </ScrollViewer>
+                        <Border BorderThickness="1"  BorderBrush="Black" Grid.Column="0" Grid.Row="1">
+                            <Button Name="btAddElectrode" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnAddElectrode" 
+                            >Add Electrode</Button>
+                        </Border>
+                    </Grid>
+                </PivotItem>
+            </Pivot>
+            <Pivot Name="PropertiesPivot" Grid.Column="0" Grid.Row="1" Visibility="Visible">
+                <PivotItem Header="Properties" Name="PropertiesPivotItem" >
+                    <StackPanel>
+                        <Slider x:Name="averEEG" Visibility="Collapsed"
+                            Header="EEG inertion"
+                            Minimum="0"                         
+                            Maximum="300"                        
+                            TickFrequency="1"
+                            Orientation="Horizontal"
+                            ValueChanged="EegAverageValueChanged" />
+                        <Slider x:Name="HistogramNormalizationSlider"  Visibility="Collapsed"
+                            Header="Histogram normalization"
+                            Minimum="0"                         
+                            Maximum="1000"                        
+                            TickFrequency="1"
+                            Orientation="Horizontal"
+                            ValueChanged="SliderValueChanged" />
+                        <Slider x:Name="SurfaceThresholdSlider"  Visibility="Collapsed"
+                            Header="Head threshold value"
+                            Minimum="0"                         
+                            Maximum="1000"                        
+                            TickFrequency="1"
+                            Orientation="Horizontal"
+                            ValueChanged="SurfaceThresholdSliderValueChanged" />
+                        <Slider x:Name="BrainThresholdSlider"  Visibility="Collapsed"
+                            Header="Brain threshold value"
+                            Minimum="0"                         
+                            Maximum="1000"                        
+                            TickFrequency="1"
+                            Orientation="Horizontal"
+                            ValueChanged="BrainThresholdSliderValueChanged" />
+                        <Slider x:Name="EegActivityNormalization" Visibility="Collapsed"
+                            Header="EEG activity normalization"
+                            Minimum="0"                         
+                            Maximum="100000"                        
+                            TickFrequency="100"
+                            Orientation="Horizontal"
+                            ValueChanged="EegActivityNormalizationSliderValueChanged" />
+                        <Slider x:Name="EegActivityExp" Visibility="Collapsed"
+                            Header="EEG activity exp"
+                            Minimum="0"                         
+                            Maximum="10"                        
+                            TickFrequency="1"
+                            Orientation="Horizontal"
+                            ValueChanged="EegActivityExpSliderValueChanged" />
+                    </StackPanel>
+                </PivotItem>
+
+            </Pivot>
+        </Grid>
+    </Grid>
+        
+</Page>

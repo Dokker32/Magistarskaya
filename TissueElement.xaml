@@ -1,0 +1,92 @@
+﻿<UserControl
+    x:Class="MRIRenderRCT.TissueElement"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MRIRenderRCT"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="110"
+    d:DesignWidth="400">
+    
+    <Border BorderBrush="LightGray" BorderThickness="2,2,2,2">
+        <Grid Name="TissueElementGrid" Language="en-US">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+        
+            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">Name:</TextBlock>
+            <TextBox Name="tbTissueName" Text="Tissue Name" MaxLength="250" TextChanged="TextBox_TextChanged" Grid.Row="0" Grid.Column="1"
+                     VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        
+            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">Alpha: </TextBlock>
+            <TextBox Text="0.05" MaxLength="250"  Grid.Row="1" Grid.Column="1" 
+                     VerticalAlignment="Center" HorizontalAlignment="Stretch" LostFocus="AlphaValueChangedEvent" KeyDown="EnterPressed" ></TextBox>
+
+            <TextBlock Text="Color: " Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            <Button Name="clrBtn" Background="AliceBlue"  Grid.Row="2" Grid.Column="1" 
+                    HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Click="BtnColorClick">
+                <Button.Flyout>
+                    <Flyout x:Name="mFlyout">
+                        <RelativePanel>
+                            <ColorPicker Name="myColorPicker"
+                                    IsColorChannelTextInputVisible="true"
+                                    IsHexInputVisible="False"
+                                    ColorSpectrumShape="Ring"
+                                    />
+
+                            <Grid RelativePanel.Below="myColorPicker"
+                                    RelativePanel.AlignLeftWithPanel="True"
+                                    RelativePanel.AlignRightWithPanel="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Button Name="OkButton"  Content="OK" Click="ConfirmColor_Click"
+                                        Margin="0,12,2,0" HorizontalAlignment="Stretch"/>
+                                <Button Content="Cancel" Click="CancelColor_Click"
+                                        Margin="2,12,0,0" HorizontalAlignment="Stretch"
+                                        Grid.Column="1"/>
+                            </Grid>
+                        </RelativePanel>
+                    </Flyout>
+                </Button.Flyout>
+            </Button>
+            <!--
+            <Rectangle Name="Rect1" Grid.Row="2" Grid.Column="1" Tapped="RectangleTapped">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="AliceBlue"/>
+                </Rectangle.Fill>
+                <FlyoutBase.AttachedFlyout>
+                    <Flyout x:Name="mFlyout">
+                        <RelativePanel>
+                            <ColorPicker Name="myColorPicker"
+                                IsColorChannelTextInputVisible="False"
+                                IsHexInputVisible="False"/>
+
+                            <Grid RelativePanel.Below="myColorPicker"
+                                RelativePanel.AlignLeftWithPanel="True"
+                                RelativePanel.AlignRightWithPanel="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Button Content="OK" Click="ConfirmColor_Click"
+                                    Margin="0,12,2,0" HorizontalAlignment="Stretch"/>
+                                <Button Content="Cancel" Click="CancelColor_Click"
+                                    Margin="2,12,0,0" HorizontalAlignment="Stretch"
+                                    Grid.Column="1"/>
+                            </Grid>
+                        </RelativePanel>
+                    </Flyout>
+                </FlyoutBase.AttachedFlyout>
+            </Rectangle>-->
+        </Grid>
+    </Border>
+</UserControl>
